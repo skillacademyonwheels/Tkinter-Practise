@@ -7,8 +7,11 @@ ORANGE = "#FCB53B"
 MAROON = "#A72703"
 FONT_NAME = "Courier"
 
+global passwd
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
+def add_passwd():
+    print("save Passwd")
 
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
@@ -32,17 +35,22 @@ label_r3.grid(row=3,column=0)
 
 entry_r1 = Entry(width=35,bg=YELLOW,fg=MAROON,font=(FONT_NAME,10))
 entry_r1.grid(row=1,column=1,columnspan=2)
+entry_r1.focus()
 
 entry_r2 = Entry(width=35,bg=YELLOW,fg=MAROON,font=(FONT_NAME,10))
 entry_r2.grid(row=2,column=1,columnspan=2)
 
-entry_r3 = Entry(width=21,bg=YELLOW,fg=MAROON,font=(FONT_NAME,10))
+entry_r2.insert(0,"xyz@gmail.com")
+
+
+passwd = StringVar(value="")
+entry_r3 = Entry(width=21,bg=YELLOW,fg=MAROON, textvariable=passwd,font=(FONT_NAME,10))
 entry_r3.grid(row=3,column=1)
 
 button_r3 = Button(text="Generate Password")
 button_r3.grid(row=3,column=2)
 
-button_add = Button(text="Add",width=35)
+button_add = Button(text="Add",width=35, command="add_passwd")
 button_add.grid(row=4,column=1,columnspan=2,pady=10)
 
 window.mainloop()
